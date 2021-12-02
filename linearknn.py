@@ -3,10 +3,6 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
-
-data = pd.read_csv("C:/Users/Latitude 7400/Desktop/ITC/PEF/ML/dataset-pruebas-motivation-knn.csv")
-
-
 def getLinearKnn(anger, sensation, emotional, sociablity, motivation, col):
     object = { 'anger': anger, 'sensation': sensation, 'emotional': emotional, 'sociability': sociablity, 'motivation': motivation }
     data = pd.DataFrame(data=object)    
