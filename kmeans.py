@@ -23,6 +23,6 @@ def getKmeans(indice, reaction, correct, error):
 
     #Getting unique labels
     #u_labels = np.unique(label)
-    centroids = kmeans.cluster_centers_
+    #centroids = kmeans.cluster_centers_
        
-    return prediction, centroids
+    return prediction

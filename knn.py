@@ -20,8 +20,7 @@ def getKnn(indice, reaction, correct, error, nechapi):
     clasificar.fit(x_scaled, y)
 
     #Se almacenan los datos predichos en el excel de datos
-    data["preditcion"]= clasificar.predict(x_scaled)
-    data.to_csv(r'C:/Users/Latitude 7400/Desktop/ITC/PEF/ML/dataset-KNN.csv')
-
+    prediction = clasificar.predict(x_scaled)
+    return prediction
 
 

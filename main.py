@@ -32,26 +32,24 @@ def kmeans():
 @app.route('/bayes', methods=['POST'])
 def bayes():
     prediction = getBayes(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'])
-    return { 'prediction': prediction}
+    data = { 'prediction': prediction }
+    result = json.dumps(data, cls=NumpyArrayEncoder)
+    return result
 
 @app.route('/knn', methods=['POST'])
 def knn():
     prediction = getKnn(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'])
-    return { 'prediction': prediction}
+    data = { 'prediction': prediction }
+    result = json.dumps(data, cls=NumpyArrayEncoder)
+    return result
 
 @app.route('/linear', methods=['POST'])
 def linear():
-    prediction = getLinear(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'])
-    return { 'prediction': prediction}
+    prediction = getLinear(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'], request.json['grupo'], request.json['target'])
+    data = { 'prediction': prediction }
+    result = json.dumps(data, cls=NumpyArrayEncoder)
+    return result
 
-@app.route('/linear/bayes', methods=['POST'])
-def linearBayes():
-    prediction = getLinearBayes(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'])
-    return { 'prediction': prediction}
 
-@app.route('/linear/knn', methods=['POST'])
-def linearKnn():
-    prediction = getLinearKnn(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'])
-    return { 'prediction': prediction}
 
 app.run()
