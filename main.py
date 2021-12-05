@@ -49,7 +49,3 @@ def linear():
     data = { 'prediction': prediction }
     result = json.dumps(data, cls=NumpyArrayEncoder)
     return result
-
-
-
-app.run()
