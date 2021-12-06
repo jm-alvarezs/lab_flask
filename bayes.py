@@ -5,15 +5,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 #creating labelEncoder
 
-def getBayes(index, reaction, correct, error, nechapi):
+def getBayes(index, reaction, correct, error, nechapi, indexPaciente, reactionPaciente, correctPaciente, errorPaciente):
 
-    features=zip(index,reaction,correct,error)
+    features = zip(index,reaction,correct,error)
+    featuresPaciente = zip(indexPaciente, reactionPaciente, correctPaciente, errorPaciente)
     #nechapi=zip(nechapi)
 
-    featuresList=list(features)
+    featuresList = list(features)
+    featuresListPaciente = list(featuresPaciente)
     #nechapiList=list(nechapi)
 
-    features=np.array(featuresList)
+    features = np.array(featuresList)
+    featuresPaciente = np.array(featuresListPaciente)
     #nechapi=np.array(nechapiList)
     
     # Split dataset into training set and test set
@@ -26,6 +29,6 @@ def getBayes(index, reaction, correct, error, nechapi):
     model.fit(x_train,y_train)
 
     #Predict Output
-    y_pred = model.predict(featuresList)
+    y_pred = model.predict(featuresListPaciente)
 
     return y_pred

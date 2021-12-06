@@ -31,14 +31,20 @@ def kmeans():
 
 @app.route('/bayes', methods=['POST'])
 def bayes():
-    prediction = getBayes(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'], request.json['dominante'])
+    prediction = getBayes(
+        request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'], request.json['dominante'],
+        request.json['indexPaciente'], request.json['reactionPaciente'], request.json['correctPaciente'], request.json['errorPaciente']
+        )
     data = { 'prediction': prediction }
     result = json.dumps(data, cls=NumpyArrayEncoder)
     return result
 
 @app.route('/knn', methods=['POST'])
 def knn():
-    prediction = getKnn(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'], request.json['dominante'])
+    prediction = getKnn(
+        request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'], request.json['dominante'],
+        request.json['indexPaciente'], request.json['reactionPaciente'], request.json['correctPaciente'], request.json['errorPaciente']
+        )
     data = { 'prediction': prediction }
     result = json.dumps(data, cls=NumpyArrayEncoder)
     return result
