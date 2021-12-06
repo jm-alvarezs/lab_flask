@@ -45,7 +45,7 @@ def knn():
 
 @app.route('/linear', methods=['POST'])
 def linear():
-    prediction = getLinear(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'], request.json['grupo'], request.json['target'])
-    data = { 'prediction': prediction }
+    weights = getLinear(request.json['index'], request.json['reaction'], request.json['correct'], request.json['error'], request.json['grupo'], request.json['target'])
+    data = { 'weights': weights }
     result = json.dumps(data, cls=NumpyArrayEncoder)
     return result
