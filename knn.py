@@ -14,7 +14,6 @@ def getKnn(indice, reaction, correct, error, nechapi, indicePaciente, reactionPa
     dataPaciente = pd.DataFrame(data=objectPaciente)
     xPaciente = dataPaciente.values
 
-
     #Se hace un feature scaling para estandarizar datos
     scaler = StandardScaler()
     scaler.fit(x)

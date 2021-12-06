@@ -9,7 +9,6 @@ def getLinear(index, reaction, correct, error, grupo, target):
 
     #separate the other attributes from the predicting attribute
     y = data['target']
-    print(y)
     x = data.drop('target',axis=1)
     #separte the predicting attribute into Y for model training 
 
@@ -29,7 +28,5 @@ def getLinear(index, reaction, correct, error, grupo, target):
     result = np.array(LR.coef_)
 
     result = np.append(result,LR.intercept_)
-
-    print(result)
 
     return result

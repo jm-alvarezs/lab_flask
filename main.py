@@ -1,4 +1,4 @@
-#test individual functions
+#import individual functions
 from flask import Flask, request
 from kmeans import getKmeans
 from bayes import getBayes
